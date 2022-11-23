@@ -6,6 +6,7 @@ import br.edu.ifsp.ads.pdm.splitthebill.model.dao.IntegranteRoomDao
 import br.edu.ifsp.ads.pdm.splitthebill.model.database.IntegranteRoomDaoDatabase
 import br.edu.ifsp.ads.pdm.splitthebill.model.entity.Integrante
 import br.edu.ifsp.ads.pdm.splitthebill.view.MainActivity
+import br.edu.ifsp.ads.pdm.splitthebill.view.RachaActivity
 
 class IntegranteRoomController(private val mainActivity: MainActivity) {
     private val integranteDaoImpl: IntegranteRoomDao by lazy {
