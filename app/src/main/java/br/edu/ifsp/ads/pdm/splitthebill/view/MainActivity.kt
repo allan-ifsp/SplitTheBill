@@ -2,6 +2,7 @@ package br.edu.ifsp.ads.pdm.splitthebill.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
@@ -13,8 +14,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.ads.pdm.splitthebill.R
 import br.edu.ifsp.ads.pdm.splitthebill.adapter.IntegranteAdapter
+import br.edu.ifsp.ads.pdm.splitthebill.adapter.RachaAdapter
 import br.edu.ifsp.ads.pdm.splitthebill.controller.IntegranteRoomController
 import br.edu.ifsp.ads.pdm.splitthebill.databinding.ActivityMainBinding
+import br.edu.ifsp.ads.pdm.splitthebill.databinding.ActivityRachaBinding
 import br.edu.ifsp.ads.pdm.splitthebill.model.Constant.EXTRA_INTEGRANTE
 import br.edu.ifsp.ads.pdm.splitthebill.model.Constant.VIEW_INTEGRANTE
 import br.edu.ifsp.ads.pdm.splitthebill.model.entity.Integrante
@@ -23,12 +26,16 @@ class MainActivity : AppCompatActivity() {
     private val amb: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+    private val arb: ActivityRachaBinding by lazy {
+        ActivityRachaBinding.inflate(layoutInflater)
+    }
 
     // Data source
     private val listaIntegrantes: MutableList<Integrante> = mutableListOf()
 
     // Adapter
     private lateinit var integranteAdapter: IntegranteAdapter
+    private lateinit var rachaAdapter: RachaAdapter
 
     private lateinit var carl: ActivityResultLauncher<Intent>
 
@@ -88,6 +95,23 @@ class MainActivity : AppCompatActivity() {
         return when(item.itemId) {
             R.id.addIntegranteMi -> {
                 carl.launch(Intent(this, IntegranteActivity::class.java))
+                true
+            }
+            R.id.rachaMi -> {
+                var total: Float = 0.0F
+                for (integrante: Integrante in listaIntegrantes){
+                    total += integrante.valorPago.toFloat()
+                }
+                Log.wtf("myWTFTag", total.toString())
+                for (integrante: Integrante in listaIntegrantes){
+                    integrante.saldo = ((integrante.valorPago).toFloat()).minus(total.div(listaIntegrantes.count())).toString()
+//                    var saldo = ((integrante.valorPago).toFloat()).minus(total.div(listaIntegrantes.count()))
+                    Log.wtf("WTFsaldoTag", integrante.toString())
+                }
+
+                carl.launch(Intent(this, RachaActivity::class.java))
+                //carl.launch(Intent(this, RachaAdapter::class.java))
+
                 true
             }
             else -> { false }

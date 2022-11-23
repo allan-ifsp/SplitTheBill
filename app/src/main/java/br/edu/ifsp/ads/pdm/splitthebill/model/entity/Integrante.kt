@@ -13,8 +13,8 @@ data class Integrante (
     var id: Int?,
     @NonNull
     var nome: String,
-    @NonNull
+
     var valorPago: String,
-    @NonNull
     var compras: String,
+    var saldo: String,
 ): Parcelable

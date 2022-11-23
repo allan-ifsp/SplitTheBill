@@ -6,4 +6,10 @@
         android:icon="@drawable/ic_add"
         android:title="@string/adicionar_integrante"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/rachaMi"
+        android:icon="@drawable/ic_rachar"
+        android:title="@string/rachar"
+        app:showAsAction="ifRoom" />
 </menu>

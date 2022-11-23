@@ -41,6 +41,7 @@ class IntegranteActivity: AppCompatActivity() {
                 nome = aib.nomeEt.text.toString(),
                 valorPago = aib.valorPagoEt.text.toString(),
                 compras = aib.comprasEt.text.toString(),
+                saldo = "0"
             )
             val resultIntent = Intent()
             resultIntent.putExtra(Constant.EXTRA_INTEGRANTE, integrante)
