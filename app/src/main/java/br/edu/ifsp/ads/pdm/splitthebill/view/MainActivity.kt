@@ -99,17 +99,13 @@ class MainActivity : AppCompatActivity() {
                 for (integrante: Integrante in listaIntegrantes){
                     total += integrante.valorPago.toFloat()
                 }
-                Log.wtf("WTFTotal", total.toString())
                 for (integrante: Integrante in listaIntegrantes){
                     integrante.saldo = ((integrante.valorPago).toFloat()).minus(total.div(listaIntegrantes.count())).toString()
-//                    var saldo = ((integrante.valorPago).toFloat()).minus(total.div(listaIntegrantes.count()))
-                    Log.wtf("WTFSaldo", integrante.toString())
                 }
 
                 val rachaIntent = Intent(this, RachaActivity::class.java)
                 rachaIntent.putExtra(LISTA_INTEGRANTES, ArrayList(listaIntegrantes))
                 rachaIntent.putExtra("KEK", "KEKW")
-                Log.wtf("WTFSaldo", listaIntegrantes.toString())
                 carl.launch(rachaIntent)
 
                 true

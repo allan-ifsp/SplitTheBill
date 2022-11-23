@@ -35,10 +35,11 @@ class RachaActivity: AppCompatActivity() {
 
         val listaIntegrantes = intent.extras?.get(LISTA_INTEGRANTES)
 
-        val viewIntegrantes = intent.getBooleanExtra(Constant.VIEW_INTEGRANTES, false)
+        val viewIntegrantes = intent.getBooleanExtra(Constant.VIEW_INTEGRANTES, true)
         if (viewIntegrantes) {
             rachaAdapter = RachaAdapter(this, listaIntegrantes as MutableList<Integrante>)
             arb.rachaLv.adapter = rachaAdapter
         }
+        registerForContextMenu(arb.rachaLv)
     }
 }

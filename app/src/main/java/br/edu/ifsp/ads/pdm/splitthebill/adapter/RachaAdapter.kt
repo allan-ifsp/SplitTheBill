@@ -20,33 +20,33 @@ class RachaAdapter (
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val integrante = listaIntegrante[position]
-        var integranteTileView = convertView
-        if (integranteTileView == null) {
+        var rachaTileView = convertView
+        if (rachaTileView == null) {
             // Inflo uma nova célula
-            integranteTileView =
+            rachaTileView =
                 (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(
                     R.layout.tile_racha,
                     parent,
                     false
                 )
 
-            val integranteTileHolder = RachaAdapter.RachaTileHolder(
-                integranteTileView.findViewById(R.id.nomeTv),
-                integranteTileView.findViewById(R.id.valorPagoTv),
-                integranteTileView.findViewById(R.id.comprasTv),
-                integranteTileView.findViewById(R.id.saldoTv),
+            val rachaTileHolder = RachaAdapter.RachaTileHolder(
+                rachaTileView.findViewById(R.id.nomeTv),
+                rachaTileView.findViewById(R.id.valorPagoTv),
+                rachaTileView.findViewById(R.id.comprasTv),
+                rachaTileView.findViewById(R.id.saldoTv),
             )
-            integranteTileView.tag = integranteTileHolder
+            rachaTileView.tag = rachaTileHolder
         }
 
-        with(integranteTileView?.tag as RachaAdapter.RachaTileHolder) {
+        with(rachaTileView?.tag as RachaAdapter.RachaTileHolder) {
             nomeTv.text = integrante.nome
             valorPagoTv.text = integrante.valorPago
             comprasTv.text = integrante.compras
             saldoTv.text = integrante.saldo
         }
 
-        return integranteTileView
+        return rachaTileView
 
     }
 }
