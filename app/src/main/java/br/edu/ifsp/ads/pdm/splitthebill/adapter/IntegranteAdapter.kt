@@ -14,8 +14,8 @@ class IntegranteAdapter (
     private val listaIntegrante: MutableList<Integrante>
 ) : ArrayAdapter<Integrante> (context, R.layout.tile_integrante, listaIntegrante){
     private data class IntegranteTileHolder(val nomeTv: TextView,
-                                            val valorPagoTv: TextView,
-                                            val comprasTv: TextView )
+                                            val valorPagoTv: TextView,)
+//                                            val comprasTv: TextView )
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val integrante = listaIntegrante[position]
@@ -32,7 +32,7 @@ class IntegranteAdapter (
             val integranteTileHolder = IntegranteAdapter.IntegranteTileHolder(
                 integranteTileView.findViewById(R.id.nomeTv),
                 integranteTileView.findViewById(R.id.valorPagoTv),
-                integranteTileView.findViewById(R.id.comprasTv),
+                //integranteTileView.findViewById(R.id.comprasTv),
             )
             integranteTileView.tag = integranteTileHolder
         }
@@ -40,7 +40,7 @@ class IntegranteAdapter (
         with(integranteTileView?.tag as IntegranteAdapter.IntegranteTileHolder) {
             nomeTv.text = integrante.nome
             valorPagoTv.text = integrante.valorPago
-            comprasTv.text = integrante.compras
+//            comprasTv.text = integrante.compras
         }
 
         return integranteTileView

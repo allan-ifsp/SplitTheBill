@@ -18,6 +18,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/valorPagoTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/valor_pago"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeEt" />
+
     <EditText
         android:id="@+id/valorPagoEt"
         android:layout_width="0dp"
@@ -27,25 +37,39 @@
         android:hint="@string/valor_pago"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeEt" />
+        app:layout_constraintTop_toBottomOf="@+id/valorPagoTv" />
+
+    <TextView
+        android:id="@+id/comprasTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/compras"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valorPagoEt" />
 
     <EditText
         android:id="@+id/comprasEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textNoSuggestions"
         android:hint="@string/compras"
+        android:inputType="textNoSuggestions"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valorPagoEt" />
+        app:layout_constraintTop_toBottomOf="@+id/comprasTv" />
 
     <Button
         android:id="@+id/saveBt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:text="@string/salvar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/comprasEt" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
